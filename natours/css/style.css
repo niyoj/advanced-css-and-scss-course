@@ -1,0 +1,103 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* removing default CSS styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+/* inheritance of font starts here*/
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;   /* means 1.7 times than normal line height */
+    color: #777;
+/* inheritance of font ends here*/
+
+    padding: 30px;
+}
+
+.site-header {
+    position: relative;
+    height: 95vh;   /* the height of .site-header must be 95% of the viewport height*/
+    background: linear-gradient(to right bottom, #7ed56fCC, #28b485CC), url("../img/hero.jpg") no-repeat top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+}
+
+.site-logo {
+    position: absolute;
+    top: 40px;
+    left:  40px;
+}
+
+.site-logo img {
+    height: 35px;   /* controlling height width will be automatically handled by browser */
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+
+    backface-visibility: hidden;    /* removing the shaking part of animation */
+}
+
+.heading-primary__main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation: from-left 1s ease-out;
+}
+
+.heading-primary__sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.5px;
+    transform: translateX(1000px);
+    animation: from-right 1s 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-1000px);
+    } 80% {
+        transform: translateX(50px);
+    } 100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+@keyframes from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(1000px);
+    } 80% {
+        transform: translateX(-50px);
+    } 100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
