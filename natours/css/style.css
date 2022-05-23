@@ -14,17 +14,22 @@ Dark green: #28b485
     box-sizing: border-box;
 }
 
+html {
+    /* root font size are always declared in html element selector */ 
+    font-size: 10px;        /* 10px is used because it is easier to do calculations like 16px = 1.6*10 and so on*/
+}
+
 body {
 
 /* inheritance of font starts here*/
     font-family: Lato, sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1.7;   /* means 1.7 times than normal line height */
     color: #777;
 /* inheritance of font ends here*/
 
-    padding: 30px;
+    padding: 3rem;
 }
 
 .site-header {
@@ -37,12 +42,12 @@ body {
 
 .site-logo {
     position: absolute;
-    top: 40px;
-    left:  40px;
+    top: 4rem;
+    left:  4rem;
 }
 
 .site-logo img {
-    height: 35px;   /* controlling height width will be automatically handled by browser */
+    height: 3.5rem;   /* controlling height width will be automatically handled by browser */
 }
 
 .hero-content {
@@ -50,6 +55,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
@@ -58,21 +64,22 @@ body {
     text-align: center;
 
     backface-visibility: hidden;    /* removing the shaking part of animation */
+    margin-bottom: 4rem;
 }
 
 .heading-primary__main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     animation: from-left 1s ease-out;
 }
 
 .heading-primary__sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.5px;
+    letter-spacing: 1.75rem;
     transform: translateX(1000px);
     animation: from-right 1s 0.5s ease-out;
     animation-fill-mode: forwards;
@@ -99,5 +106,72 @@ body {
     } 100% {
         opacity: 1;
         transform: translateX(0); 
+    }
+}
+
+.btn:link, .btn:visited {
+    background-color: #55c57a;
+    color: #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 1rem 2rem rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0px 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+.btn-white:link, .btn-white:visited {
+    color: #777;
+    background-color: #fff;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 10rem;
+    opacity: 1;
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: from-bottom .5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes from-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(500px);
+    } 80% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+        transform: translateY(0); 
     }
 }
