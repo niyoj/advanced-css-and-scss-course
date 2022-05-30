@@ -37,24 +37,24 @@ body {
     background: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg") no-repeat top; // in sass we can use hex inside of rgba
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
-}
 
-.site-header__logo-wrapper {
-    position: absolute;
-    top: 4rem;
-    left:  4rem;
-}
+    &__logo-wrapper {
+        position: absolute;
+        top: 4rem;
+        left:  4rem;
 
-.site-header__logo-wrapper img {
-    height: 3.5rem;   /* controlling height width will be automatically handled by browser */
-}
+        img {
+            height: 3.5rem;   /* controlling height width will be automatically handled by browser */
+        }
+    }
 
-.site-header__hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    &__hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
 .heading-primary {
@@ -64,24 +64,93 @@ body {
 
     backface-visibility: hidden;    /* removing the shaking part of animation */
     margin-bottom: 4rem;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation: from-left 1s ease-out;
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        transform: translateX(1000px);
+        animation: from-right 1s 0.5s ease-out;
+        animation-fill-mode: forwards;
+    }
 }
 
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: from-left 1s ease-out;
+.btn {
+    &:link, &:visited {
+        background-color: $color-primary;
+        color: $color-white;
+        text-transform: capitalize;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);   /* we don't write 0px, instead we just say 0 and 0 in front of decimal points like 0.5px = .5px */
+    }
+
+    &--white:link, &--white:visited {
+        color: $color-dark-grey;
+        background-color: $color-white;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 10rem;
+        opacity: 1;
+        transition: all 0.4s;
+    }
+
+    &--white::after {
+        background-color: $color-white;
+    }
+
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+    &--animated {
+        animation: from-bottom .5s ease-out 0.75s;
+        animation-fill-mode: backwards;
+    }
 }
 
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    transform: translateX(1000px);
-    animation: from-right 1s 0.5s ease-out;
-    animation-fill-mode: forwards;
+@keyframes from-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(500px);
+    } 80% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
 }
 
 @keyframes from-left {
@@ -105,72 +174,5 @@ body {
     } 100% {
         opacity: 1;
         transform: translateX(0); 
-    }
-}
-
-.btn:link, .btn:visited {
-    background-color: $color-primary;
-    color: $color-white;
-    text-transform: capitalize;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all 0.2s;
-    position: relative;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-}
-
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);   /* we don't write 0px, instead we just say 0 and 0 in front of decimal points like 0.5px = .5px */
-}
-
-.btn--white:link, .btn--white:visited {
-    color: $color-dark-grey;
-    background-color: $color-white;
-}
-
-.btn::after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    border-radius: 10rem;
-    opacity: 1;
-    transition: all 0.4s;
-}
-
-.btn--white::after {
-    background-color: $color-white;
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-.btn--animated {
-    animation: from-bottom .5s ease-out 0.75s;
-    animation-fill-mode: backwards;
-}
-
-@keyframes from-bottom {
-    0% {
-        opacity: 0;
-        transform: translateY(500px);
-    } 80% {
-        opacity: 0;
-    } 100% {
-        opacity: 1;
-        transform: translateY(0); 
     }
 }
