@@ -1,3 +1,9 @@
+/*
+ * abstracts will contain files that would not appear as css like mixins
+ * components are buliding blocks of the webpage
+ * layouts where we will have global layouts
+ * vendors will have third party frameworks like bootstrap.
+ */
 /* removing default CSS styles */
 * {
   margin: 0;

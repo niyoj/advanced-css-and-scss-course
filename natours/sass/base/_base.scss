@@ -1,0 +1,17 @@
+/* removing default CSS styles */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* root font size are always declared in html element selector */ 
+    font-size: 10px;        /* 10px is used because it is easier to do calculations like 16px = 1.6*10 and so on*/
+}
+
+body {
+    box-sizing: border-box;
+}

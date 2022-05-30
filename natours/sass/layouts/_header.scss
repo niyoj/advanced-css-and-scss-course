@@ -1,0 +1,25 @@
+.site-header {
+    position: relative;
+    height: 95vh;   /* the height of .site-header must be 95% of the viewport height*/
+    background: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg") no-repeat top; // in sass we can use hex inside of rgba
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+
+    &__logo-wrapper {
+        position: absolute;
+        top: 4rem;
+        left:  4rem;
+
+        img {
+            height: 3.5rem;   /* controlling height width will be automatically handled by browser */
+        }
+    }
+
+    &__hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
