@@ -2,6 +2,10 @@ $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
+$color-dark-grey: #777;
+$color-white: #fff;
+$color-black: #000;
+
 /* removing default CSS styles */
 * {
     margin: 0;
@@ -21,7 +25,7 @@ body {
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.7;   /* means 1.7 times than normal line height */
-    color: #777;
+    color: $color-dark-grey;
 /* inheritance of font ends here*/
 
     padding: 3rem;
@@ -54,7 +58,7 @@ body {
 }
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     text-align: center;
 
@@ -106,7 +110,7 @@ body {
 
 .btn:link, .btn:visited {
     background-color: $color-primary;
-    color: #fff;
+    color: $color-white;
     text-transform: capitalize;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -118,17 +122,17 @@ body {
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2);   /* we don't write 0px, instead we just say 0 and 0 in front of decimal points like 0.5px = .5px */
+    box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);   /* we don't write 0px, instead we just say 0 and 0 in front of decimal points like 0.5px = .5px */
 }
 
 .btn--white:link, .btn--white:visited {
-    color: #777;
-    background-color: #fff;
+    color: $color-dark-grey;
+    background-color: $color-white;
 }
 
 .btn::after {
@@ -146,7 +150,7 @@ body {
 }
 
 .btn--white::after {
-    background-color: #fff;
+    background-color: $color-white;
 }
 
 .btn:hover::after {
