@@ -4,16 +4,51 @@
  * layouts where we will have global layouts
  * vendors will have third party frameworks like bootstrap.
  */
+@keyframes from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(500px); }
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-1000px); }
+  80% {
+    transform: translateX(50px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(1000px); }
+  80% {
+    transform: translateX(-50px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
 /* removing default CSS styles */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: inherit; }
 
 html {
   /* root font size are always declared in html element selector */
   font-size: 10px;
   /* 10px is used because it is easier to do calculations like 16px = 1.6*10 and so on*/ }
+
+body {
+  box-sizing: border-box; }
 
 body {
   /* inheritance of font starts here*/
@@ -25,27 +60,6 @@ body {
   color: #777;
   /* inheritance of font ends here*/
   padding: 3rem; }
-
-.site-header {
-  position: relative;
-  height: 95vh;
-  /* the height of .site-header must be 95% of the viewport height*/
-  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg") no-repeat top;
-  background-size: cover;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%); }
-  .site-header__logo-wrapper {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-    .site-header__logo-wrapper img {
-      height: 3.5rem;
-      /* controlling height width will be automatically handled by browser */ }
-  .site-header__hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -117,32 +131,51 @@ body {
   animation: from-bottom .5s ease-out 0.75s;
   animation-fill-mode: backwards; }
 
-@keyframes from-bottom {
-  0% {
-    opacity: 0;
-    transform: translateY(500px); }
-  80% {
-    opacity: 0; }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
+.site-header {
+  position: relative;
+  height: 95vh;
+  /* the height of .site-header must be 95% of the viewport height*/
+  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg") no-repeat top;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%); }
+  .site-header__logo-wrapper {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+    .site-header__logo-wrapper img {
+      height: 3.5rem;
+      /* controlling height width will be automatically handled by browser */ }
+  .site-header__hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
-@keyframes from-left {
-  0% {
-    opacity: 0;
-    transform: translateX(-1000px); }
-  80% {
-    transform: translateX(50px); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes from-right {
-  0% {
-    opacity: 0;
-    transform: translateX(1000px); }
-  80% {
-    transform: translateX(-50px); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem)/2); }
+  .row .col-1-of-3 {
+    width: calc((1 * (100% - 2 * 6rem)/3) + 6rem * 0); }
+  .row .col-2-of-3 {
+    width: calc((2 * (100% - 2 * 6rem)/3) + 6rem * 1); }
+  .row .col-1-of-4 {
+    width: calc((1 * (100% - 3 * 6rem)/4) + 6rem * 0); }
+  .row .col-2-of-4 {
+    width: calc((2 * (100% - 3 * 6rem)/4) + 6rem * 1); }
+  .row .col-3-of-4 {
+    width: calc((3 * (100% - 3 * 6rem)/4) + 6rem * 2); }

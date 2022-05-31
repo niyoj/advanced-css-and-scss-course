@@ -1,0 +1,12 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// calculates width of $x of $y column
+@mixin calc_width_grid($x, $y) {
+    width: calc((#{$x} * (100% - #{$y - 1} * #{$gutter-horizontal})/#{$y}) + #{$gutter-horizontal} * #{$x - 1});
+}
