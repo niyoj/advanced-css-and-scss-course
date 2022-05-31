@@ -2,7 +2,7 @@ body {
     /* inheritance of font starts here*/
         font-family: Lato, sans-serif;
         font-weight: 400;
-        font-size: 1.6rem;
+        font-size: $default-font-size;
         line-height: 1.7;   /* means 1.7 times than normal line height */
         color: $color-dark-grey;
     /* inheritance of font ends here*/
@@ -34,5 +34,36 @@ body {
         transform: translateX(1000px);
         animation: from-right 1s 0.5s ease-out;
         animation-fill-mode: forwards;
+    }
+}
+
+.heading-secondary {
+    display: inline-block;  // to make the h2 element occupy what is necessary only
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(to right, $color-primary-light, $color-primary-dark);   // first setting the linear gradient as background of the element
+    -webkit-background-clip: text;  // clipping the background to text
+    color: transparent;     // making the text see through so, that we see only linear gradient
+
+    transition: .2s all;
+    
+    &:hover {
+        transform: skewY(2deg) skewX(20deg) rotateZ(2deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+    
+    &:not(:last-child) {
+        margin-bottom: 3rem;
     }
 }
