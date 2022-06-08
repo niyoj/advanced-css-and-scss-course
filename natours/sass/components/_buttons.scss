@@ -38,6 +38,7 @@
         border-radius: 10rem;
         opacity: 1;
         transition: all 0.4s;
+        background-color: $color-primary;
     }
 
     &--white::after {
