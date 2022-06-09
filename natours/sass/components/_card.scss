@@ -94,8 +94,13 @@
 
     &--2 {
         .card__side--front {
-            .card_img {
-                background-image: url("../img/nat-6.jpg");
+            .card__img {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+                url("../img/nat-6.jpg");
+            }
+
+            .card__heading--span {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
             }
         }
 
@@ -106,8 +111,13 @@
 
     &--3 {
         .card__side--front {
-            .card_img {
-                background-image: url("../img/nat-7.jpg");
+            .card__img {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+                url("../img/nat-7.jpg");
+            }
+
+            .card__heading--span {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
             }
         }
 
@@ -122,5 +132,23 @@
 
     &:hover &__side--back {
         transform: rotateY(0deg);
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-white;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
