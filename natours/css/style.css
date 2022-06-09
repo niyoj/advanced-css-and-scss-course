@@ -118,6 +118,9 @@ body {
 .u-margin-bottom-small {
   margin-bottom: 1.5rem; }
 
+.u-ucase-text {
+  text-decoration: uppercase; }
+
 .btn:link, .btn:visited {
   background-color: #55c57a;
   color: #fff;
@@ -275,6 +278,30 @@ body {
     font-size: 6rem;
     font-weight: 100; }
 
+.story {
+  background-color: #f7f7f7;
+  width: 75%;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  padding: 6rem;
+  padding-left: 9rem;
+  border-radius: 3px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  transform: skewX(-12deg); }
+  .story > * {
+    transform: skewX(12deg); }
+  .story__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .story__avatar {
+    height: 100%; }
+
 .composition {
   position: relative;
   background: red; }
@@ -390,3 +417,7 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0;
   margin-top: -10rem; }
+
+.site-stories {
+  background-color: #eee;
+  padding: 20rem 0; }
