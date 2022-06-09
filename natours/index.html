@@ -242,12 +242,21 @@
             </div>
 
             <div class="u-center-text">
-                <a href="#" class="btn btn--animated">discover all tours</a>
+                <a href="#" class="btn btn--animated" style="text-transform: uppercase;">discover all tours</a>
             </div>
         </section>
 
         <section class="site-stories">
-            <div class="u-center-text u-margin-bottom-big">
+            <div class="bg-video">
+                <video class="bg-video__content" autoplay muted loop>
+                    <!-- making sure that the videoes works i n every kind of browsers -->
+                    <source src="./img/video.mp4" type="video/mp4">
+                    <source src="./img/video.webm" type="video/webm">
+                    Your browser is not supported
+                </video>
+            </div>
+
+            <div class="u-center-text u-margin-bottom-big" style="z-index:5;">
                 <h2 class="heading-secondary">we make people geniunely happy</h2>
             </div>
 
@@ -284,7 +293,6 @@
             <div class="u-center-text">
                 <a href="#" class="btn-text">Read all stories &rarr;</a>
             </div>
-            
         </section>
     </main>
 </body>
